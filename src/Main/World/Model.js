@@ -61,33 +61,29 @@ export default class Model {
     });
 
     if (this.debug.active) {
-      this.debugFolder.bigWaveFolder = this.debugFolder.addFolder("big wave");
-      this.debugFolder.bigWaveFolder
-        .add(this.soupMaterial.uniforms.uBigWavesElevation, "value", 0, 1, 0.001)
-        .name("uBigWavesElevation");
-      this.debugFolder.bigWaveFolder
-        .add(this.soupMaterial.uniforms.uBigWavesFrequency.value, "x", 0, 10, 0.001)
-        .name("uBigWavesFrequencyX");
-      this.debugFolder.bigWaveFolder
-        .add(this.soupMaterial.uniforms.uBigWavesFrequency.value, "y", 0, 10, 0.001)
-        .name("uBigWavesFrequencyY");
-      this.debugFolder.bigWaveFolder
-        .add(this.soupMaterial.uniforms.uBigWavesSpeed, "value", 0, 4, 0.001)
-        .name("uBigWavesSpeed");
+      this.debugFolder.add(this.soupMaterial.uniforms.uBigWavesElevation, 'value')
+        .min(0)
+        .max(1)
+        .step(0.001)
+        .name('Wave Height');
 
-      this.debugFolder.smallWaveFolder = this.debugFolder.addFolder("small wave");
-      this.debugFolder.smallWaveFolder
-        .add(this.soupMaterial.uniforms.uSmallWavesElevation, "value", 0, 1, 0.001)
-        .name("uSmallWavesElevation");
-      this.debugFolder.smallWaveFolder
-        .add(this.soupMaterial.uniforms.uSmallWavesFrequency, "value", 0, 30, 0.001)
-        .name("uSmallWavesFrequency");
-      this.debugFolder.smallWaveFolder
-        .add(this.soupMaterial.uniforms.uSmallWavesSpeed, "value", 0, 4, 0.001)
-        .name("uSmallWavesSpeed");
-      this.debugFolder.smallWaveFolder
-        .add(this.soupMaterial.uniforms.uSmallWavesIterations, "value", 0, 5, 1)
-        .name("uSmallWavesIterations");
+      this.debugFolder.add(this.soupMaterial.uniforms.uBigWavesSpeed, 'value')
+        .min(0)
+        .max(4)
+        .step(0.001)
+        .name('Wave Speed');
+
+      this.debugFolder.add(this.soupMaterial.uniforms.uSmallWavesElevation, 'value')
+        .min(0)
+        .max(0.3)
+        .step(0.001)
+        .name('Ripple Height');
+
+      this.debugFolder.add(this.soupMaterial.uniforms.uSmallWavesSpeed, 'value')
+        .min(0)
+        .max(4)
+        .step(0.001)
+        .name('Ripple Speed');
     }
 
     this.soup = this.resource.scene.children.find((child) => child.name === "soup");

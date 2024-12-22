@@ -1,5 +1,6 @@
 uniform float uTime;
 uniform float uFrequency;
+uniform float uOpacity;
 uniform sampler2D uPerlinTexture;
 uniform vec3 uColor1;
 uniform vec3 uColor2;
@@ -29,7 +30,7 @@ void main()
   vec3 finalColor = mix(uColor1, uColor2, smoke);
 
   // Final Color
-  gl_FragColor = vec4(finalColor, smoke);
+  gl_FragColor = vec4(finalColor, smoke * uOpacity);
 
   #include <tonemapping_fragment>
   #include <colorspace_fragment>

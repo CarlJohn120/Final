@@ -50,21 +50,18 @@ export default class Fire {
     this.debugObject.color2 = "#e95e0a";
 
     this.material = new THREE.ShaderMaterial({
+      uniforms: {
+        uTime: { value: 0 },
+        uFrequency: { value: 0 },
+        uPerlinTexture: { value: this.resources.items.perlinTexture },
+        uColor1: { value: new THREE.Color("#ff4500") },
+        uColor2: { value: new THREE.Color("#ffd700") },
+        uOpacity: { value: 0 }
+      },
       vertexShader: fireVertexShader,
       fragmentShader: fireFragmentShader,
-
-      uniforms: {
-        uTime: new THREE.Uniform(0),
-        uFrequency: new THREE.Uniform(0.3),
-        uPerlinTexture: new THREE.Uniform(this.texture),
-        uColor1: { value: new THREE.Color(this.debugObject.color1) },
-        uColor2: { value: new THREE.Color(this.debugObject.color2) },
-      },
-
-      side: THREE.DoubleSide,
-      // wireframe: true,
       transparent: true,
-      depthWrite: false,
+      depthWrite: false
     });
 
     if (this.debug.active) {
@@ -80,8 +77,20 @@ export default class Fire {
     }
   }
 
-  updateFireFrequency(rangeValue = 0.3) {
-    this.material.uniforms.uFrequency.value = rangeValue;
+  fadeOut() {
+    // Gradually fade out the fire
+    const fadeInterval = setInterval(() => {
+      const currentOpacity = this.material.uniforms.uOpacity.value;
+      if (currentOpacity > 0) {
+        this.material.uniforms.uOpacity.value = Math.max(0, currentOpacity - 0.05);
+      } else {
+        clearInterval(fadeInterval);
+      }
+    }, 50);
+  }
+
+  updateFireFrequency(value) {
+    this.material.uniforms.uFrequency.value = value;
   }
 
   setMesh() {

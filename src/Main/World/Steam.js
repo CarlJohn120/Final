@@ -53,10 +53,10 @@ export default class Steam {
       fragmentShader: steamFragmentShader,
 
       uniforms: {
-        uTime: new THREE.Uniform(0),
-        uFrequency: new THREE.Uniform(0.3),
-        uPerlinTexture: new THREE.Uniform(this.texture),
-        uColor: { value: new THREE.Color(this.debugObject.color) },
+        uTime: { value: 0 },
+        uFrequency: { value: 0 },
+        uOpacity: { value: 0 },
+        uPerlinTexture: { value: this.resources.items.perlinTexture }
       },
 
       side: THREE.DoubleSide,
@@ -75,8 +75,12 @@ export default class Steam {
     }
   }
 
-  updateSteamFrequency(rangeValue = 0.3) {
-    this.material.uniforms.uFrequency.value = rangeValue / 2;
+  updateSteamFrequency(value) {
+    this.material.uniforms.uFrequency.value = value;
+  }
+
+  updateOpacity(value) {
+    this.material.uniforms.uOpacity.value = value;
   }
 
   setMesh() {

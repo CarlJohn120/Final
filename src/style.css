@@ -102,3 +102,72 @@ input::-moz-focus-inner,
 input::-moz-focus-outer {
   border: 0;
 }
+
+.reset_button {
+    margin-top: 10px;
+    padding: 8px 16px;
+    background-color: #ff4500;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'Platypi', sans-serif;
+    transition: background-color 0.3s;
+}
+
+.reset_button:hover {
+    background-color: #ff6b33;
+}
+
+.cook_button {
+    margin-top: 10px;
+    padding: 8px 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'Platypi', sans-serif;
+    transition: background-color 0.3s;
+}
+
+.cook_button:hover {
+    background-color: #45a049;
+}
+
+.cook_button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+.stop_button {
+    margin-top: 10px;
+    padding: 8px 16px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'Platypi', sans-serif;
+    transition: background-color 0.3s;
+}
+
+.stop_button:hover {
+    background-color: #c82333;
+}
+
+.resume_button {
+    margin-top: 10px;
+    padding: 8px 16px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'Platypi', sans-serif;
+    transition: background-color 0.3s;
+}
+
+.resume_button:hover {
+    background-color: #218838;
+}

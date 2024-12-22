@@ -1,4 +1,4 @@
-# Ramen Pot
+# Ramen
 
 ## Setup
 

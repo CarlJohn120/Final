@@ -45,14 +45,6 @@ export default class Audio {
 
     this.scene.add(this.boilingSound);
 
-    // js audio
-    // this.sound = new Audio("./boiling_cut.mp3");
-    // this.sound.loop = true;
-    // this.sound.volume = 0.3;
-    // this.sound.play();
-    // if (this.debug.active) {
-    //   this.debugFolder.add(this.sound, "volume").min(0).max(1).step(0.001);
-    // }
   }
 
   updateAudioVolume(rangeValue = 0.3) {

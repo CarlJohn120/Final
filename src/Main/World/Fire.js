@@ -111,15 +111,6 @@ export default class Fire {
     this.mesh4.rotation.set(0, -1.1, 0);
 
     this.scene.add(this.mesh1, this.mesh2, this.mesh3, this.mesh4);
-
-    // if (this.debug.active) {
-    //   this.debugFolder.add(this.mesh.position, "x").min(-10).max(10).step(0.001);
-    //   this.debugFolder.add(this.mesh.position, "y").min(-10).max(10).step(0.001);
-    //   this.debugFolder.add(this.mesh.position, "z").min(-10).max(10).step(0.001);
-    //   this.debugFolder.add(this.mesh.rotation, "x").min(-10).max(10).step(0.001);
-    //   this.debugFolder.add(this.mesh.rotation, "y").min(-10).max(10).step(0.001);
-    //   this.debugFolder.add(this.mesh.rotation, "z").min(-10).max(10).step(0.001);
-    // }
   }
 
   update() {
